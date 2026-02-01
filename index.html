@@ -57,23 +57,22 @@
   </div>
 
   <script>
-    function yes() {
-      // music start
-      document.getElementById("bgm").play();
+function yes() {
+  // music start (audio ab delete nahi hoga)
+  document.getElementById("bgm").play();
 
-      // message show
-      document.body.innerHTML =
-        "<h1 style='color:red;text-align:center;'>I Love You ❤️😍</h1>";
-    }
+  // sirf box ka content change karo
+  document.querySelector(".box").innerHTML = `
+    <h1 style="color:red;">I Love You ❤️😍</h1>
+    <p style="font-size:18px;">Tum meri Valentine ho 💖</p>
+  `;
+}
 
-    function run() {
-      let no = document.getElementById("no");
-      let x = Math.random() * 250;
-      let y = Math.random() * 150;
-      no.style.left = x + "px";
-      no.style.top = y + "px";
-    }
+function run() {
+  let no = document.getElementById("no");
+  let x = Math.random() * 250;
+  let y = Math.random() * 150;
+  no.style.left = x + "px";
+  no.style.top = y + "px";
+}
   </script>
-
-</body>
-</html>
