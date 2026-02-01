@@ -18,15 +18,15 @@
       border-radius: 15px;
       text-align: center;
       width: 300px;
-      height: 220px;
       position: relative;
     }
 
     button {
       padding: 10px 20px;
       font-size: 18px;
+      margin: 10px;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
     }
 
@@ -45,34 +45,56 @@
 
 <body>
 
-  <!-- Background Music -->
+  <!-- YES background music -->
   <audio id="bgm" loop>
     <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
   </audio>
 
+  <!-- NO button tENGE-tENGE sound -->
+  <audio id="noSound" preload="auto">
+    <source src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg" type="audio/ogg">
+  </audio>
+
   <div class="box">
-    <h2>💘 Will you be my Valentine? 💘</h2><br>
+    <h2>💘 Will you be my Valentine? 💘</h2>
     <button id="yes" onclick="yes()">Yes ❤️</button>
     <button id="no" onmouseover="run()">No 😜</button>
   </div>
 
   <script>
-function yes() {
-  // music start (audio ab delete nahi hoga)
-  document.getElementById("bgm").play();
+    function yes() {
+      // romantic music start
+      document.getElementById("bgm").play();
 
-  // sirf box ka content change karo
-  document.querySelector(".box").innerHTML = `
-    <h1 style="color:red;">I Love You ❤️😍</h1>
-    <p style="font-size:18px;">Tum meri Valentine ho 💖</p>
-  `;
-}
+      // show love message
+      document.querySelector(".box").innerHTML = `
+        <h1 style="color:red;">I Love You ❤️😍</h1>
+        <p style="font-size:18px;">Tum meri Valentine ho 💖</p>
+        <p style="font-size:14px;">Bas ek kaam aur 😉</p>
+      `;
 
-function run() {
-  let no = document.getElementById("no");
-  let x = Math.random() * 250;
-  let y = Math.random() * 150;
-  no.style.left = x + "px";
-  no.style.top = y + "px";
-}
+      // WhatsApp auto-open with message (after 2 sec)
+      setTimeout(() => {
+        window.location.href =
+          "https://wa.me/919153954415?text=Yes%20I%20clicked%20YES%20and%20I%20am%20your%20Valentine%20%E2%9D%A4%EF%B8%8F";
+      }, 2000);
+    }
+
+    function run() {
+      let no = document.getElementById("no");
+
+      // tENGE-tENGE sound 😈
+      let s = document.getElementById("noSound");
+      s.currentTime = 0;
+      s.play();
+
+      // NO button bhaage
+      let x = Math.random() * 250;
+      let y = Math.random() * 150;
+      no.style.left = x + "px";
+      no.style.top = y + "px";
+    }
   </script>
+
+</body>
+</html>
